@@ -5,211 +5,193 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MUAS English Placement Test</title>
 <style>
-:root {
-  --navy:   #002366;
-  --blue:   #0047AB;
-  --mid:    #1565C0;
-  --light:  #E8F1FB;
-  --gold:   #F5A623;
-  --green:  #1B6B3A;
-  --red:    #C0392B;
-  --gray:   #F5F7FA;
-  --border: #D0DCF0;
-  --text:   #1a1a2e;
-  --muted:  #5A6A80;
-  --a1:#78909C; --a2:#1976D2; --b1:#00897B; --b2:#5E35B1; --c1:#6D4C41;
+:root{
+  --navy:#002366;--blue:#0047AB;--mid:#1565C0;--light:#E8F1FB;
+  --gold:#F5A623;--green:#1B6B3A;--red:#C0392B;--gray:#F5F7FA;
+  --border:#D0DCF0;--text:#1a1a2e;--muted:#5A6A80;
+  --b2:#5E35B1;--c1:#6D4C41;--c2:#1B5E20;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,Helvetica,sans-serif;background:#EEF2FB;color:var(--text);min-height:100vh;}
 
 /* LOGIN */
-#login-overlay{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#002366,#0047AB);display:flex;align-items:center;justify-content:center;}
-#login-overlay.gone{display:none;}
-.lbox{background:#fff;border-radius:16px;padding:44px 40px 36px;width:380px;max-width:94vw;box-shadow:0 20px 60px rgba(0,0,0,.35);text-align:center;}
-.llogo{width:70px;height:70px;background:linear-gradient(135deg,#002366,#0047AB);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:30px;}
-.lbox h1{font-size:22px;font-weight:900;color:#002366;margin-bottom:3px;}
-.lbox .lsub{font-size:12px;color:var(--muted);margin-bottom:24px;}
-.lfield{text-align:left;margin-bottom:14px;}
-.lfield label{display:block;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;}
-.lfield input{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:10px 13px;font-size:14px;outline:none;font-family:Arial;transition:border-color .2s;}
-.lfield input:focus{border-color:var(--blue);}
-.lbtn{width:100%;background:linear-gradient(135deg,#002366,#0047AB);color:#fff;border:none;border-radius:8px;padding:13px;font-size:15px;font-weight:700;cursor:pointer;margin-top:4px;transition:opacity .2s;}
+#lo{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#002366,#0047AB);display:flex;align-items:center;justify-content:center;}
+#lo.gone{display:none;}
+.lbox{background:#fff;border-radius:16px;padding:40px 36px 32px;width:400px;max-width:95vw;box-shadow:0 20px 60px rgba(0,0,0,.35);text-align:center;}
+.llogo{width:68px;height:68px;background:linear-gradient(135deg,#002366,#0047AB);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:28px;}
+.lbox h1{font-size:21px;font-weight:900;color:#002366;margin-bottom:2px;}
+.lsub{font-size:11px;color:var(--muted);margin-bottom:20px;}
+.lf{text-align:left;margin-bottom:12px;}
+.lf label{display:block;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;}
+.lf input{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:9px 12px;font-size:13px;outline:none;font-family:Arial;transition:border-color .2s;}
+.lf input:focus{border-color:var(--blue);}
+.lbtn{width:100%;background:linear-gradient(135deg,#002366,#0047AB);color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;margin-top:4px;}
 .lbtn:hover{opacity:.88;}
-.lerr{color:var(--red);font-size:12px;font-weight:700;margin-top:8px;display:none;}
-.lfooter{margin-top:18px;font-size:10px;color:#bbb;}
+.lerr{color:var(--red);font-size:11px;font-weight:700;margin-top:7px;display:none;}
+.lfoot{margin-top:16px;font-size:10px;color:#bbb;}
 
 /* HEADER */
-.hdr{background:linear-gradient(135deg,var(--navy),var(--mid));color:#fff;padding:18px 28px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 3px 14px rgba(0,0,0,.25);}
-.hdr h1{font-size:19px;font-weight:900;letter-spacing:.5px;}
-.hdr .hsub{font-size:11px;opacity:.8;margin-top:2px;}
-.hbadge{background:var(--gold);color:var(--navy);font-weight:900;font-size:12px;padding:4px 13px;border-radius:20px;}
-.htimer{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 11px;font-size:12px;font-weight:700;margin-top:5px;display:inline-block;}
+.hdr{background:linear-gradient(135deg,var(--navy),var(--mid));color:#fff;padding:16px 26px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 3px 14px rgba(0,0,0,.25);}
+.hdr h1{font-size:18px;font-weight:900;}
+.hsub{font-size:10px;opacity:.8;margin-top:2px;}
+.hbadge{background:var(--gold);color:var(--navy);font-weight:900;font-size:11px;padding:4px 12px;border-radius:20px;}
+.htimer{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700;margin-top:4px;display:inline-block;}
 
-/* INFO BAR */
-.ibar{background:#fff;border-bottom:1px solid var(--border);padding:10px 28px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;}
+/* INFO */
+.ibar{background:#fff;border-bottom:1px solid var(--border);padding:9px 26px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
 .ifield{display:flex;flex-direction:column;gap:2px;}
-.ifield label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-weight:700;}
-.ifield input{border:none;border-bottom:2px solid var(--border);padding:3px 5px;font-size:13px;width:190px;outline:none;background:transparent;}
+.ifield label{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-weight:700;}
+.ifield input{border:none;border-bottom:2px solid var(--border);padding:3px 4px;font-size:12px;width:180px;outline:none;background:transparent;}
 .ifield input:focus{border-bottom-color:var(--blue);}
-.ifield input[style*="150px"]{width:150px;}
 
-/* SECTION NAV TABS */
-.snav{background:var(--navy);display:flex;overflow-x:auto;padding:0 28px;}
-.stab{color:rgba(255,255,255,.55);padding:11px 18px;font-size:11px;font-weight:700;letter-spacing:.4px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s;text-transform:uppercase;}
+/* TABS */
+.snav{background:var(--navy);display:flex;overflow-x:auto;padding:0 26px;}
+.stab{color:rgba(255,255,255,.5);padding:10px 16px;font-size:10px;font-weight:700;letter-spacing:.4px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s;text-transform:uppercase;}
 .stab:hover{color:#fff;}
 .stab.active{color:#fff;border-bottom-color:var(--gold);}
-.stab.done{color:rgba(255,255,255,.75);}
 .stab.done::after{content:' ✓';}
 
 /* PROGRESS */
-.pbar{background:var(--navy);padding:8px 28px;display:flex;align-items:center;gap:12px;}
-.ptrack{flex:1;height:6px;background:rgba(255,255,255,.2);border-radius:3px;overflow:hidden;}
+.pbar{background:var(--navy);padding:7px 26px;display:flex;align-items:center;gap:12px;}
+.ptrack{flex:1;height:5px;background:rgba(255,255,255,.2);border-radius:3px;overflow:hidden;}
 .pfill{height:100%;background:linear-gradient(90deg,var(--gold),#fff);border-radius:3px;transition:width .5s;}
-.plabel{font-size:11px;color:rgba(255,255,255,.8);white-space:nowrap;font-weight:700;min-width:130px;text-align:right;}
+.plabel{font-size:10px;color:rgba(255,255,255,.8);white-space:nowrap;font-weight:700;min-width:140px;text-align:right;}
 
 /* LEVEL BAND */
-.lband{display:flex;max-width:860px;margin:16px auto 0;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);}
-.lb{flex:1;text-align:center;padding:6px 4px;font-size:10px;font-weight:900;color:#fff;letter-spacing:.4px;opacity:.3;transition:opacity .3s;}
+.lband{display:flex;max-width:860px;margin:14px auto 0;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);}
+.lb{flex:1;text-align:center;padding:6px 4px;font-size:10px;font-weight:900;color:#fff;opacity:.3;transition:opacity .3s;}
 .lb.on{opacity:1;}
 
 /* MAIN */
-.main{max-width:860px;margin:0 auto;padding:0 18px 60px;}
-
-/* PANELS */
+.main{max-width:860px;margin:0 auto;padding:0 16px 60px;}
 .panel{display:none;}
 .panel.active{display:block;}
 
 /* SECTION HEADER */
-.shdr{background:linear-gradient(135deg,var(--navy),var(--mid));color:#fff;border-radius:10px 10px 0 0;padding:18px 22px;margin-top:18px;}
-.shdr h2{font-size:17px;font-weight:900;}
-.shdr p{font-size:12px;opacity:.85;margin-top:4px;line-height:1.5;}
-.smeta{display:flex;gap:9px;margin-top:9px;flex-wrap:wrap;}
-.chip{background:rgba(255,255,255,.18);padding:2px 9px;border-radius:12px;font-size:10px;font-weight:700;}
-.sbody{background:#fff;border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:18px 22px;margin-bottom:4px;}
+.shdr{background:linear-gradient(135deg,var(--navy),var(--mid));color:#fff;border-radius:10px 10px 0 0;padding:16px 20px;margin-top:16px;}
+.shdr h2{font-size:16px;font-weight:900;}
+.shdr p{font-size:11px;opacity:.85;margin-top:3px;line-height:1.5;}
+.smeta{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;}
+.chip{background:rgba(255,255,255,.18);padding:2px 8px;border-radius:12px;font-size:10px;font-weight:700;}
+.sbody{background:#fff;border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:16px 20px;margin-bottom:4px;}
 
-/* LISTENING PASSAGE */
-.listen-passage{background:#fffdf4;border-left:4px solid var(--gold);padding:14px 16px;border-radius:0 8px 8px 0;font-size:14px;line-height:1.9;margin-bottom:14px;}
-.listen-passage strong{color:var(--navy);}
-
-/* AUDIO PLAYER */
-.aplayer{display:flex;align-items:center;gap:10px;background:var(--light);border:1px solid #b8cfef;border-radius:8px;padding:8px 13px;margin-bottom:12px;}
-.pbtn{width:34px;height:34px;background:var(--blue);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s;}
+/* AUDIO */
+.aplayer{display:flex;align-items:center;gap:9px;background:var(--light);border:1px solid #b8cfef;border-radius:8px;padding:8px 12px;margin-bottom:10px;}
+.pbtn{width:32px;height:32px;background:var(--blue);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .pbtn:hover{background:var(--mid);}
 .pbtn.playing{background:var(--red);}
-.pbtn svg{width:13px;height:13px;fill:#fff;}
+.pbtn svg{width:12px;height:12px;fill:#fff;}
 .ainfo{flex:1;}
-.alabel{font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.4px;}
-.atrack{height:3px;background:#c8daf5;border-radius:2px;margin-top:4px;}
+.alabel{font-size:9px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.4px;}
+.atrack{height:3px;background:#c8daf5;border-radius:2px;margin-top:3px;}
 .abar{height:100%;background:var(--blue);border-radius:2px;width:0%;transition:width .1s;}
 .acount{font-size:10px;color:var(--muted);font-weight:600;white-space:nowrap;}
 
-/* QUESTION CARD */
-.qcard{border:1px solid var(--border);border-radius:9px;margin-bottom:12px;overflow:hidden;background:#fff;}
-.qtop{padding:13px 17px 10px;}
-.lvltag{display:inline-block;font-size:9px;font-weight:900;letter-spacing:.4px;padding:2px 7px;border-radius:10px;color:#fff;margin-bottom:5px;}
-.qrow{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px;}
-.qnum{width:25px;height:25px;background:var(--blue);color:#fff;border-radius:50%;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.qtext{font-size:14px;line-height:1.55;flex:1;}
-.qblank{font-weight:900;color:var(--navy);border-bottom:2px solid var(--navy);padding:0 6px;}
+/* PASSAGE */
+.passage{background:#fffdf4;border-left:4px solid var(--gold);padding:13px 15px;border-radius:0 8px 8px 0;font-size:13px;line-height:1.9;margin-bottom:12px;}
+
+/* QUESTION */
+.qcard{border:1px solid var(--border);border-radius:9px;margin-bottom:11px;overflow:hidden;background:#fff;}
+.qtop{padding:12px 16px 8px;}
+.ltag{display:inline-block;font-size:9px;font-weight:900;letter-spacing:.4px;padding:2px 7px;border-radius:10px;color:#fff;margin-bottom:4px;}
+.qrow{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;}
+.qnum{width:23px;height:23px;background:var(--blue);color:#fff;border-radius:50%;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.qtext{font-size:13px;line-height:1.6;flex:1;}
+.blank{font-weight:900;color:var(--navy);border-bottom:2px solid var(--navy);padding:0 5px;}
 
 /* OPTIONS */
-.opts{display:flex;flex-direction:column;gap:6px;padding:0 17px 13px;}
-.opt{display:flex;align-items:center;gap:9px;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;font-size:13px;transition:all .15s;user-select:none;}
+.opts{display:flex;flex-direction:column;gap:5px;padding:0 16px 12px;}
+.opt{display:flex;align-items:center;gap:8px;padding:7px 11px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;font-size:13px;transition:all .15s;user-select:none;}
 .opt:hover{border-color:var(--blue);background:var(--light);}
 .opt.selected{border-color:var(--blue);background:var(--light);}
-.opt.correct{border-color:var(--green);background:#E8F5E9 !important;}
-.opt.wrong{border-color:var(--red);background:#FFEBEE !important;}
-.ocircle{width:17px;height:17px;border-radius:50%;border:1.5px solid #aaa;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;}
-.opt.selected .ocircle{background:var(--blue);border-color:var(--blue);}
-.opt.selected .ocircle::after{content:'';width:7px;height:7px;background:#fff;border-radius:50%;}
-.opt.correct .ocircle{background:var(--green);border-color:var(--green);}
-.opt.wrong .ocircle{background:var(--red);border-color:var(--red);}
-.oletter{font-weight:700;color:var(--muted);font-size:11px;width:14px;}
+.opt.correct{border-color:var(--green);background:#E8F5E9!important;pointer-events:none;}
+.opt.wrong{border-color:var(--red);background:#FFEBEE!important;pointer-events:none;}
+.oc{width:16px;height:16px;border-radius:50%;border:1.5px solid #aaa;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.opt.selected .oc{background:var(--blue);border-color:var(--blue);}
+.opt.selected .oc::after{content:'';width:6px;height:6px;background:#fff;border-radius:50%;}
+.opt.correct .oc{background:var(--green);border-color:var(--green);}
+.opt.wrong .oc{background:var(--red);border-color:var(--red);}
+.ol{font-weight:700;color:var(--muted);font-size:10px;width:13px;}
 
 /* SENTENCE BUILD */
-.wbank{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:#EEF3FC;border-radius:8px;border:1px solid var(--border);margin-bottom:9px;min-height:42px;}
-.wchip{background:var(--blue);color:#fff;padding:4px 11px;border-radius:20px;font-size:12px;cursor:pointer;font-weight:600;transition:opacity .2s,transform .1s;}
-.wchip:hover{transform:scale(1.04);}
-.wchip.used{opacity:.22;pointer-events:none;}
-.adrop{min-height:40px;background:#fff;border:2px dashed #aabde0;border-radius:8px;padding:7px 11px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:#aaa;font-style:italic;}
-.pwrd{background:var(--green);color:#fff;padding:3px 10px;border-radius:20px;font-size:12px;cursor:pointer;font-weight:600;font-style:normal;}
-.clr{font-size:10px;color:var(--muted);cursor:pointer;text-decoration:underline;padding:0 0 7px 17px;display:block;}
-.sbfb{font-size:12px;font-weight:700;margin-top:5px;display:none;}
+.wbank{display:flex;flex-wrap:wrap;gap:6px;padding:9px;background:#EEF3FC;border-radius:8px;border:1px solid var(--border);margin-bottom:8px;min-height:40px;}
+.wchip{background:var(--blue);color:#fff;padding:4px 10px;border-radius:20px;font-size:11px;cursor:pointer;font-weight:600;transition:opacity .2s;}
+.wchip.used{opacity:.2;pointer-events:none;}
+.adrop{min-height:38px;background:#fff;border:2px dashed #aabde0;border-radius:8px;padding:6px 10px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:12px;color:#aaa;font-style:italic;}
+.pwrd{background:var(--green);color:#fff;padding:3px 9px;border-radius:20px;font-size:11px;cursor:pointer;font-weight:600;font-style:normal;}
+.clr{font-size:10px;color:var(--muted);cursor:pointer;text-decoration:underline;padding:0 0 6px 16px;display:block;}
+.sbfb{font-size:11px;font-weight:700;margin-top:4px;display:none;}
 
 /* WRITING */
-.wprompt{background:linear-gradient(135deg,var(--navy),var(--mid));color:#fff;border-radius:8px;padding:16px 18px;font-size:14px;font-weight:600;margin-bottom:12px;line-height:1.6;}
-.warea{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:12px 14px;font-size:14px;font-family:Arial;resize:vertical;min-height:160px;outline:none;line-height:1.7;}
+.wprompt{background:linear-gradient(135deg,var(--navy),var(--mid));color:#fff;border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.7;margin-bottom:10px;}
+.warea{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:11px 13px;font-size:13px;font-family:Arial;resize:vertical;min-height:180px;outline:none;line-height:1.75;}
 .warea:focus{border-color:var(--blue);}
-.wcount{font-size:11px;color:var(--muted);text-align:right;margin-top:4px;}
-.wmin{color:var(--red);font-weight:700;}
+.wcount{font-size:10px;color:var(--muted);text-align:right;margin-top:3px;}
 
-/* SECTION SCORE */
-.sec-score{display:flex;align-items:center;gap:10px;background:var(--light);border:1px solid var(--border);border-radius:8px;padding:9px 14px;margin-bottom:14px;font-size:13px;}
-.sec-score strong{color:var(--navy);}
+/* SCORE BAR */
+.secsc{display:flex;align-items:center;gap:10px;background:var(--light);border:1px solid var(--border);border-radius:8px;padding:8px 13px;margin-bottom:12px;font-size:12px;display:none;}
 
-/* NAV FOOTER */
-.sfooter{display:flex;justify-content:space-between;align-items:center;margin-top:14px;}
-.btn{padding:9px 24px;border-radius:24px;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .2s;}
-.btn-p{background:var(--blue);color:#fff;} .btn-p:hover{background:var(--mid);}
-.btn-s{background:#e0e8f5;color:var(--blue);} .btn-s:hover{background:#d0dcf0;}
-.btn-g{background:var(--gold);color:var(--navy);} .btn-g:hover{background:#e09600;}
+/* FOOTER */
+.sfooter{display:flex;justify-content:space-between;align-items:center;margin-top:12px;}
+.btn{padding:8px 22px;border-radius:24px;font-size:12px;font-weight:700;cursor:pointer;border:none;transition:all .2s;}
+.bp{background:var(--blue);color:#fff;}.bp:hover{background:var(--mid);}
+.bs{background:#e0e8f5;color:var(--blue);}.bs:hover{background:#d0dcf0;}
+.bg{background:var(--gold);color:var(--navy);}.bg:hover{background:#e09600;}
 
 /* RESULTS */
 #rp{display:none;}
-.rwrap{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;max-width:680px;margin:28px auto;}
-.rtop{background:linear-gradient(135deg,var(--navy),var(--mid));color:#fff;padding:40px 28px;text-align:center;}
-.rtop h2{font-size:22px;font-weight:900;margin-bottom:6px;}
-.rtop .rsub{opacity:.8;font-size:13px;}
-.rbody{padding:24px 28px;}
-.ract{display:flex;gap:10px;justify-content:center;margin-top:18px;}
+.rwrap{background:#fff;border-radius:14px;border:1px solid var(--border);max-width:660px;margin:26px auto;overflow:hidden;}
+.rtop{background:linear-gradient(135deg,var(--navy),var(--mid));color:#fff;padding:36px 26px;text-align:center;}
+.rbody{padding:22px 26px;text-align:center;}
 </style>
 </head>
 <body style="overflow:hidden">
 
 <!-- LOGIN -->
-<div id="login-overlay">
+<div id="lo">
   <div class="lbox">
     <div class="llogo">🎓</div>
     <h1>MUAS</h1>
-    <div class="lsub">English Placement Test · A1–C1<br>Please fill in all fields to begin</div>
-    <div class="lfield"><label>Full Name *</label>
+    <div class="lsub">English Placement Test · B2–C2 · University Level<br>All fields marked * are required</div>
+    <div class="lf"><label>Full Name *</label>
       <input type="text" id="lName" placeholder="Your full name" autocomplete="off"/></div>
-    <div class="lfield"><label>Passport / ID Number *</label>
+    <div class="lf"><label>Passport / ID Number *</label>
       <input type="text" id="lId" placeholder="e.g. AB123456" autocomplete="off"/></div>
-    <div class="lfield"><label>Group</label>
-      <input type="text" id="lGroup" placeholder="e.g. Group A" autocomplete="off"/></div>
-    <div class="lfield"><label>Access Code *</label>
+    <div class="lf"><label>Group / Program</label>
+      <input type="text" id="lGroup" placeholder="e.g. Business Administration" autocomplete="off"/></div>
+    <div class="lf"><label>Access Code *</label>
       <input type="password" id="acode" placeholder="Enter access code"
         onkeydown="if(event.key==='Enter')doLogin()" autocomplete="off"/></div>
-    <button class="lbtn" onclick="doLogin()">Enter Exam →</button>
-    <div class="lerr" id="lerr">❌ Incorrect code. Please try again.</div>
-    <div class="lerr" id="lerr2" style="display:none">⚠️ Please fill in your name and ID before continuing.</div>
-    <div class="lfooter">© MUAS · Unauthorized access is prohibited</div>
+    <button class="lbtn" id="lbtn" onclick="doLogin()">Begin Exam →</button>
+    <div class="lerr" id="lerr">❌ Incorrect access code. Please try again.</div>
+    <div class="lerr" id="lerr2" style="display:none">⚠️ Please enter your full name and ID number.</div>
+    <div class="lerr" id="lerrNet" style="display:none">🌐 Connection error. Please check your internet and try again.</div>
+    <div class="lfoot">© MUAS · Unauthorized access is prohibited</div>
   </div>
 </div>
 
 <!-- HEADER -->
 <div class="hdr">
   <div><h1>🎯 MUAS English Placement Test</h1>
-    <div class="hsub">TOEFL-Style · Adaptive Assessment · A1 → C1</div></div>
+    <div class="hsub">TOEFL-Style · University Level · B2 → C2</div></div>
   <div style="text-align:right">
-    <div class="hbadge">PLACEMENT · A1–C1</div>
-    <div class="htimer" id="gtimer">⏱ 00:00</div>
+    <div class="hbadge">B2 · C1 · C2</div>
+    <div class="htimer" id="gt">⏱ 00:00</div>
   </div>
 </div>
 
 <!-- INFO BAR -->
 <div class="ibar">
-  <div class="ifield"><label>Full Name</label><input id="sName" placeholder="Your full name"/></div>
+  <div class="ifield"><label>Name</label><input id="sName" readonly style="color:var(--navy);font-weight:700"/></div>
+  <div class="ifield"><label>ID</label><input id="sId" readonly style="color:var(--navy);font-weight:700;width:130px"/></div>
   <div class="ifield"><label>Date</label><input id="sDate" type="date"/></div>
-  <div class="ifield"><label>Group</label><input id="sGroup" placeholder="e.g. Group A" style="width:150px"/></div>
-  <div style="margin-left:auto;font-size:10px;color:var(--muted);max-width:220px;line-height:1.5">
-    🔊 Press ▶ for audio.<br>Use <strong>Chrome or Edge</strong> for best quality.
+  <div style="margin-left:auto;font-size:10px;color:var(--muted);max-width:200px;line-height:1.5">
+    🔊 Press ▶ for audio. Use <strong>Chrome or Edge</strong>.
   </div>
 </div>
 
-<!-- SECTION TABS -->
-<div class="snav" id="snav">
+<!-- TABS -->
+<div class="snav">
   <div class="stab active" onclick="goTo(0)" id="tab0">1 · Listening</div>
   <div class="stab" onclick="goTo(1)" id="tab1">2 · Grammar</div>
   <div class="stab" onclick="goTo(2)" id="tab2">3 · Vocabulary</div>
@@ -219,118 +201,96 @@ body{font-family:Arial,Helvetica,sans-serif;background:#EEF2FB;color:var(--text)
 
 <!-- PROGRESS -->
 <div class="pbar">
-  <div class="ptrack"><div class="pfill" id="pfill" style="width:20%"></div></div>
-  <div class="plabel" id="plabel">Section 1 of 5</div>
+  <div class="ptrack"><div class="pfill" id="pf" style="width:20%"></div></div>
+  <div class="plabel" id="pl">Section 1 of 5 — Listening</div>
 </div>
 
 <!-- LEVEL BAND -->
-<div style="max-width:860px;margin:0 auto;padding:0 18px;">
+<div style="max-width:860px;margin:0 auto;padding:0 16px;">
   <div class="lband">
-    <div class="lb on" id="lb-A1" style="background:#78909C">A1 Beginner</div>
-    <div class="lb" id="lb-A2" style="background:#1976D2">A2 Elementary</div>
-    <div class="lb" id="lb-B1" style="background:#00897B">B1 Intermediate</div>
-    <div class="lb" id="lb-B2" style="background:#5E35B1">B2 Upper-Int.</div>
+    <div class="lb on" id="lb-B2" style="background:#5E35B1">B2 Upper-Intermediate</div>
     <div class="lb" id="lb-C1" style="background:#6D4C41">C1 Advanced</div>
+    <div class="lb" id="lb-C2" style="background:#1B5E20">C2 Proficiency</div>
   </div>
 </div>
 
 <div class="main">
 
-<!-- ══ SECTION 1: LISTENING ══ -->
+<!-- S1: LISTENING -->
 <div class="panel active" id="panel-0">
-  <div class="shdr">
-    <h2>Section 1 — Listening Comprehension</h2>
-    <p>Listen to each audio passage, then answer the multiple choice questions. Each passage plays up to 2 times.</p>
-    <div class="smeta">
-      <div class="chip">20 questions</div><div class="chip">⏱ ~18 min</div>
-      <div class="chip">A1 → C1 progression</div><div class="chip">Auto-scored</div>
-    </div>
+  <div class="shdr"><h2>Section 1 — Listening Comprehension</h2>
+    <p>Listen to each passage and answer the questions. Each passage plays a maximum of 2 times. Read the questions first, then listen.</p>
+    <div class="smeta"><div class="chip">20 questions</div><div class="chip">⏱ ~20 min</div><div class="chip">B2 → C2</div><div class="chip">Auto-scored</div></div>
   </div>
   <div class="sbody">
-    <div id="s1-items"></div>
-    <div id="s1-score" class="sec-score" style="display:none"></div>
+    <div id="s1"></div>
+    <div class="secsc" id="sc1"></div>
     <div class="sfooter">
-      <div style="font-size:11px;color:var(--muted)">Answer all questions before moving on.</div>
-      <button class="btn btn-p" onclick="submitSection(0)">Submit & Next →</button>
+      <div style="font-size:11px;color:var(--muted)">Answer all questions before submitting.</div>
+      <button class="btn bp" onclick="submitSec(0)">Submit & Continue →</button>
     </div>
   </div>
 </div>
 
-<!-- ══ SECTION 2: GRAMMAR ══ -->
+<!-- S2: GRAMMAR -->
 <div class="panel" id="panel-1">
-  <div class="shdr">
-    <h2>Section 2 — Grammar</h2>
-    <p>Choose the option that best completes each sentence. Questions progress from basic (A1) to advanced (C1).</p>
-    <div class="smeta">
-      <div class="chip">20 questions</div><div class="chip">⏱ ~15 min</div>
-      <div class="chip">A1 → C1</div><div class="chip">Auto-scored</div>
-    </div>
+  <div class="shdr"><h2>Section 2 — Grammar</h2>
+    <p>Select the option that best completes each sentence. Questions test advanced grammatical structures at B2–C2 level.</p>
+    <div class="smeta"><div class="chip">20 questions</div><div class="chip">⏱ ~15 min</div><div class="chip">B2 → C2</div><div class="chip">Auto-scored</div></div>
   </div>
   <div class="sbody">
-    <div id="s2-items"></div>
-    <div id="s2-score" class="sec-score" style="display:none"></div>
+    <div id="s2"></div>
+    <div class="secsc" id="sc2"></div>
     <div class="sfooter">
-      <button class="btn btn-s" onclick="goTo(0)">← Back</button>
-      <button class="btn btn-p" onclick="submitSection(1)">Submit & Next →</button>
+      <button class="btn bs" onclick="goTo(0)">← Back</button>
+      <button class="btn bp" onclick="submitSec(1)">Submit & Continue →</button>
     </div>
   </div>
 </div>
 
-<!-- ══ SECTION 3: VOCABULARY ══ -->
+<!-- S3: VOCABULARY -->
 <div class="panel" id="panel-2">
-  <div class="shdr">
-    <h2>Section 3 — Vocabulary</h2>
-    <p>Choose the word or phrase that best fits each context. Tests range from everyday words (A1) to academic and idiomatic language (C1).</p>
-    <div class="smeta">
-      <div class="chip">20 questions</div><div class="chip">⏱ ~15 min</div>
-      <div class="chip">A1 → C1</div><div class="chip">Auto-scored</div>
-    </div>
+  <div class="shdr"><h2>Section 3 — Vocabulary</h2>
+    <p>Choose the word or phrase that best fits each context. Tests academic, idiomatic, and advanced vocabulary at B2–C2 level.</p>
+    <div class="smeta"><div class="chip">20 questions</div><div class="chip">⏱ ~15 min</div><div class="chip">B2 → C2</div><div class="chip">Auto-scored</div></div>
   </div>
   <div class="sbody">
-    <div id="s3-items"></div>
-    <div id="s3-score" class="sec-score" style="display:none"></div>
+    <div id="s3"></div>
+    <div class="secsc" id="sc3"></div>
     <div class="sfooter">
-      <button class="btn btn-s" onclick="goTo(1)">← Back</button>
-      <button class="btn btn-p" onclick="submitSection(2)">Submit & Next →</button>
+      <button class="btn bs" onclick="goTo(1)">← Back</button>
+      <button class="btn bp" onclick="submitSec(2)">Submit & Continue →</button>
     </div>
   </div>
 </div>
 
-<!-- ══ SECTION 4: SENTENCE BUILDS ══ -->
+<!-- S4: SENTENCE BUILDS -->
 <div class="panel" id="panel-3">
-  <div class="shdr">
-    <h2>Section 4 — Sentence Builds</h2>
-    <p>Click the words in the correct order to form a grammatically correct sentence. Difficulty increases progressively.</p>
-    <div class="smeta">
-      <div class="chip">15 questions</div><div class="chip">⏱ ~12 min</div>
-      <div class="chip">A1 → C1</div><div class="chip">Auto-scored</div>
-    </div>
+  <div class="shdr"><h2>Section 4 — Sentence Builds</h2>
+    <p>Arrange the words into a grammatically correct sentence. All items test advanced B2–C2 structures: inversions, conditionals, passive, complex syntax.</p>
+    <div class="smeta"><div class="chip">15 questions</div><div class="chip">⏱ ~12 min</div><div class="chip">B2 → C2</div><div class="chip">Auto-scored</div></div>
   </div>
   <div class="sbody">
-    <div id="s4-items"></div>
-    <div id="s4-score" class="sec-score" style="display:none"></div>
+    <div id="s4"></div>
+    <div class="secsc" id="sc4"></div>
     <div class="sfooter">
-      <button class="btn btn-s" onclick="goTo(2)">← Back</button>
-      <button class="btn btn-p" onclick="submitSection(3)">Submit & Next →</button>
+      <button class="btn bs" onclick="goTo(2)">← Back</button>
+      <button class="btn bp" onclick="submitSec(3)">Submit & Continue →</button>
     </div>
   </div>
 </div>
 
-<!-- ══ SECTION 5: WRITING ══ -->
+<!-- S5: WRITING -->
 <div class="panel" id="panel-4">
-  <div class="shdr">
-    <h2>Section 5 — Writing</h2>
-    <p>Write a response to the prompt below. Focus on clarity, grammar, vocabulary range, and organization. Minimum 150 words.</p>
-    <div class="smeta">
-      <div class="chip">1 task</div><div class="chip">⏱ ~25 min</div>
-      <div class="chip">Examiner-scored</div><div class="chip">Min. 150 words</div>
-    </div>
+  <div class="shdr"><h2>Section 5 — Academic Writing</h2>
+    <p>Write a well-structured academic essay in response to the prompt. You will be evaluated on argumentation, coherence, grammatical range and accuracy, and vocabulary sophistication. Minimum 250 words.</p>
+    <div class="smeta"><div class="chip">1 task</div><div class="chip">⏱ ~30 min</div><div class="chip">Examiner-scored</div><div class="chip">Min. 250 words</div></div>
   </div>
   <div class="sbody">
-    <div id="s5-items"></div>
+    <div id="s5"></div>
     <div class="sfooter">
-      <button class="btn btn-s" onclick="goTo(3)">← Back</button>
-      <button class="btn btn-g" onclick="finishTest()">✓ Finish &amp; Submit</button>
+      <button class="btn bs" onclick="goTo(3)">← Back</button>
+      <button class="btn bg" onclick="finishTest()">✓ Submit Exam</button>
     </div>
   </div>
 </div>
@@ -339,590 +299,447 @@ body{font-family:Arial,Helvetica,sans-serif;background:#EEF2FB;color:var(--text)
 <div id="rp">
   <div class="rwrap">
     <div class="rtop">
-      <div style="font-size:56px;margin-bottom:12px">✅</div>
-      <h2>Exam Submitted Successfully</h2>
-      <div class="rsub" id="r-name">—</div>
+      <div style="font-size:52px;margin-bottom:10px">✅</div>
+      <h2 style="font-size:20px;font-weight:900;margin-bottom:6px">Exam Successfully Submitted</h2>
+      <div style="opacity:.85;font-size:13px" id="rname">—</div>
     </div>
-    <div class="rbody" style="text-align:center">
-      <p style="font-size:15px;line-height:1.75;color:#2a2a3e;margin-bottom:18px">
+    <div class="rbody">
+      <p style="font-size:14px;line-height:1.75;color:#2a2a3e;margin-bottom:16px">
         Thank you for completing the <strong>MUAS English Placement Test</strong>.<br>
         Your responses have been successfully recorded.
       </p>
-      <div style="background:var(--light);border:1px solid #b8cfef;border-radius:10px;padding:16px 18px;margin-bottom:20px;font-size:13px;color:var(--navy);line-height:1.75;text-align:left">
-        📋 <strong>What happens next?</strong><br>
+      <div style="background:var(--light);border:1px solid #b8cfef;border-radius:10px;padding:14px 16px;font-size:12px;color:var(--navy);line-height:1.8;text-align:left">
+        📋 <strong>Next steps:</strong><br>
         Your results will be reviewed by the <strong>MUAS Examination Committee</strong>,
-        who will contact you with your official English level and certificate.
+        who will contact you with your official English proficiency level and certificate.
       </div>
-      <div style="font-size:11px;color:var(--muted)">You may now close this window.</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:16px">You may now close this window.</div>
     </div>
   </div>
 </div>
-
-</div><!-- /main -->
+</div>
 
 <script>
-// ═══════════════════════════════════
-// GOOGLE SHEETS URL — paste yours here
-const SHEETS_URL = "https://script.google.com/macros/s/AKfycbzIUz45isa5V5_qDEuf7LELtGggQF2Tx7DIw2ZjMOmmZKPC2siQ6QmzdDufc3Y25drr/exec";
-// ACCESS CODES
-const ACCESS_CODES = ['MUAS2025','muas2025'];
-// ═══════════════════════════════════
+// ── FormSpree endpoint — receives exam results ──
+const FORMSPREE_URL = "https://formspree.io/f/xnjkowre";
 
-// ── LOGIN ──
+// Access codes — add one per student: 'MUAS-XXXX'
+const ACCESS_CODES = ['MUAS2025','MUAS-A001','MUAS-A002','MUAS-A003','MUAS-A004','MUAS-A005'];
+
 function doLogin(){
-  const v     = document.getElementById('acode').value.trim();
-  const name  = document.getElementById('lName').value.trim();
-  const idnum = document.getElementById('lId').value.trim();
-  const group = document.getElementById('lGroup').value.trim();
-  const err1  = document.getElementById('lerr');
-  const err2  = document.getElementById('lerr2');
+  const name = document.getElementById('lName').value.trim();
+  const id   = document.getElementById('lId').value.trim();
+  const code = document.getElementById('acode').value.trim().toUpperCase();
+  const err1 = document.getElementById('lerr');
+  const err2 = document.getElementById('lerr2');
   err1.style.display='none'; err2.style.display='none';
 
-  if(!name || !idnum){
-    err2.style.display='block';
-    return;
-  }
-  if(!ACCESS_CODES.includes(v)){
+  if(!name||!id){ err2.style.display='block'; return; }
+  if(!ACCESS_CODES.includes(code)){
     err1.style.display='block';
     document.getElementById('acode').value='';
     document.getElementById('acode').focus();
     return;
   }
-  // All good — copy values to exam info bar and hide login
-  document.getElementById('sName').value  = name;
-  document.getElementById('sGroup').value = idnum + (group ? ' · '+group : '');
-  document.getElementById('login-overlay').classList.add('gone');
+  document.getElementById('sName').value = name;
+  document.getElementById('sId').value   = id;
+  document.getElementById('lo').classList.add('gone');
   document.body.style.overflow='';
 }
 
-// ── TIMER ──
+// TIMER
 let sec=0;
-setInterval(()=>{
-  sec++;
-  const m=String(Math.floor(sec/60)).padStart(2,'0');
-  const s=String(sec%60).padStart(2,'0');
-  document.getElementById('gtimer').textContent=`⏱ ${m}:${s}`;
-},1000);
+setInterval(()=>{sec++;const m=String(Math.floor(sec/60)).padStart(2,'0'),s=String(sec%60).padStart(2,'0');document.getElementById('gt').textContent=`⏱ ${m}:${s}`;},1000);
 
-// ── SPEECH ──
-let curUtt=null; const pCounts={};
-function loadV(){ window._voices=speechSynthesis.getVoices(); }
-speechSynthesis.onvoiceschanged=loadV; loadV();
-function bestVoice(){
-  const vv=window._voices||[];
-  return vv.find(v=>v.lang.startsWith('en-US'))||vv.find(v=>v.lang.startsWith('en'))||vv[0]||null;
-}
-function speak(text,id,max){
-  if(curUtt){speechSynthesis.cancel();curUtt=null;
-    document.querySelectorAll('.pbtn').forEach(b=>{b.classList.remove('playing');b.innerHTML=pIco();});}
-  const cnt=pCounts[id]||0;
-  if(max&&cnt>=max){alert(`This audio can only be played ${max} time(s).`);return;}
-  pCounts[id]=cnt+1;
-  const cel=document.getElementById(`cnt-${id}`);
-  if(cel)cel.textContent=`${pCounts[id]}x`;
-  const u=new SpeechSynthesisUtterance(text);
-  u.voice=bestVoice(); u.rate=0.88; u.pitch=1; u.volume=1;
-  const btn=document.getElementById(`pb-${id}`);
-  const bar=document.getElementById(`ab-${id}`);
-  if(btn){btn.classList.add('playing');btn.innerHTML=sIco();}
-  const est=text.length*70; const t0=Date.now();
+// SPEECH
+let curU=null;const pC={};
+function lv(){window._v=speechSynthesis.getVoices();}
+speechSynthesis.onvoiceschanged=lv;lv();
+function bv(){const v=window._v||[];return v.find(x=>x.lang.startsWith('en-US'))||v.find(x=>x.lang.startsWith('en'))||v[0]||null;}
+function speak(txt,id,mx){
+  if(curU){speechSynthesis.cancel();curU=null;document.querySelectorAll('.pbtn').forEach(b=>{b.classList.remove('playing');b.innerHTML=pi();});}
+  const cnt=pC[id]||0;if(mx&&cnt>=mx){alert(`Max ${mx} plays allowed.`);return;}
+  pC[id]=cnt+1;const cel=document.getElementById(`cnt-${id}`);if(cel)cel.textContent=`${pC[id]}x`;
+  const u=new SpeechSynthesisUtterance(txt);u.voice=bv();u.rate=0.87;u.pitch=1;u.volume=1;
+  const btn=document.getElementById(`pb-${id}`),bar=document.getElementById(`ab-${id}`);
+  if(btn){btn.classList.add('playing');btn.innerHTML=si();}
+  const est=txt.length*72,t0=Date.now();
   const iv=setInterval(()=>{if(bar)bar.style.width=Math.min(((Date.now()-t0)/est)*100,97)+'%';},80);
-  u.onend=()=>{clearInterval(iv);if(bar){bar.style.width='100%';setTimeout(()=>{if(bar)bar.style.width='0%';},800);}
-    if(btn){btn.classList.remove('playing');btn.innerHTML=pIco();}curUtt=null;};
-  u.onerror=()=>{clearInterval(iv);if(btn){btn.classList.remove('playing');btn.innerHTML=pIco();}curUtt=null;};
-  curUtt=u; speechSynthesis.speak(u);
+  u.onend=()=>{clearInterval(iv);if(bar){bar.style.width='100%';setTimeout(()=>{if(bar)bar.style.width='0%';},700);}if(btn){btn.classList.remove('playing');btn.innerHTML=pi();}curU=null;};
+  u.onerror=()=>{clearInterval(iv);if(btn){btn.classList.remove('playing');btn.innerHTML=pi();}curU=null;};
+  curU=u;speechSynthesis.speak(u);
 }
-const pIco=()=>`<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>`;
-const sIco=()=>`<svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`;
-
-function player(id,text,max,lbl){
-  return `<div class="aplayer">
-    <button class="pbtn" id="pb-${id}" onclick="speak('${text.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${id}',${max||99})">${pIco()}</button>
-    <div class="ainfo"><div class="alabel">${lbl||'🔊 Listen'}</div>
-      <div class="atrack"><div class="abar" id="ab-${id}"></div></div></div>
-    <div class="acount" id="cnt-${id}">0x</div>
-  </div>`;
+const pi=()=>`<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>`;
+const si=()=>`<svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`;
+function player(id,txt,mx,lbl){
+  return `<div class="aplayer"><button class="pbtn" id="pb-${id}" onclick="speak('${txt.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${id}',${mx||99})">${pi()}</button><div class="ainfo"><div class="alabel">${lbl||'🔊 Listen'}</div><div class="atrack"><div class="abar" id="ab-${id}"></div></div></div><div class="acount" id="cnt-${id}">0x</div></div>`;
 }
 
-const lvlC={A1:'#78909C',A2:'#1976D2',B1:'#00897B',B2:'#5E35B1',C1:'#6D4C41'};
-function ltag(lv){return `<span class="lvltag" style="background:${lvlC[lv]}">${lv}</span>`;}
+const lc={B2:'#5E35B1',C1:'#6D4C41',C2:'#1B5E20'};
+function lt(lv){return `<span class="ltag" style="background:${lc[lv]}">${lv}</span>`;}
 
-// ── SCORES ──
-const answers={s1:{},s2:{},s3:{},s4:{}};
-const correct={s1:{},s2:{},s3:{},s4:{}};
-const sbState={};
+// ANSWERS & CORRECT
+const ans={s1:{},s2:{},s3:{},s4:{}};
+const cor={s1:{},s2:{},s3:{},s4:{}};
+const sb={};
 
-// ═══════════════════════════════════════════════
-// SECTION 1 — LISTENING DATA (20 Qs, A1→C1)
-// ═══════════════════════════════════════════════
-const s1passages=[
+// ═══════════════════════════════
+// SECTION 1 — LISTENING (B2→C2)
+// ═══════════════════════════════
+const s1d=[
   {
-    id:'p1a', lv:'A1',
-    audio:"Hi. My name is Tom. I am eight years old. I have a dog. His name is Max. Max is big and brown. I love Max.",
+    id:'la',lv:'B2',
+    audio:"Good morning. Today I want to address the growing debate around artificial intelligence in the workforce. Proponents argue that automation will create more jobs than it displaces, pointing to historical precedents such as the Industrial Revolution. Critics, however, contend that the pace of current technological change is unprecedented and that many middle-skill jobs — particularly those involving routine cognitive tasks — will be permanently eliminated. A recent Oxford University study estimated that approximately forty-seven percent of US jobs are at high risk of automation within the next two decades. Policymakers are under increasing pressure to develop retraining programmes and social safety nets to manage this transition.",
     qs:[
-      {q:"What is the boy's name?", opts:["Max","Tom","Sam","Bob"], a:1},
-      {q:"How old is he?", opts:["Six","Ten","Eight","Nine"], a:2},
-      {q:"What color is his dog?", opts:["Black","White","Grey","Brown"], a:3},
+      {q:"What historical precedent do proponents of AI use to support their argument?",opts:["The Digital Revolution","The Agricultural Revolution","The Industrial Revolution","The Space Race"],a:2},
+      {q:"Which type of jobs does the speaker say are most at risk?",opts:["Manual labour jobs","Creative sector jobs","Routine cognitive middle-skill jobs","Senior management positions"],a:2},
+      {q:"What did the Oxford University study estimate?",opts:["23% of jobs at risk","47% of US jobs at high risk within two decades","60% of global jobs threatened","30% of skilled jobs displaced"],a:1},
+      {q:"What does the speaker say policymakers are pressured to develop?",opts:["New AI regulations","Retraining programmes and social safety nets","International trade agreements","University research funding"],a:1},
     ]
   },
   {
-    id:'p1b', lv:'A2',
-    audio:"Sarah works in a café downtown. She starts at seven in the morning and finishes at three in the afternoon. She likes her job because she meets many interesting people. On weekends she likes to go hiking in the mountains.",
+    id:'lb',lv:'C1',
+    audio:"The concept of epistemic injustice, introduced by philosopher Miranda Fricker, refers to the wrong done to someone specifically in their capacity as a knower. Fricker identifies two primary forms. The first is testimonial injustice, which occurs when a speaker receives less credibility than they deserve due to identity prejudice — for example, when a woman's expert testimony is dismissed because of her gender. The second is hermeneutical injustice, which arises when a gap in collective interpretive resources puts someone at an unfair disadvantage in making sense of their own social experience. A well-known example is the absence of the concept of sexual harassment in the workplace before the 1970s, which left many people unable to articulate or seek redress for their experiences.",
     qs:[
-      {q:"Where does Sarah work?", opts:["In a school","In a café","In a hospital","In a shop"], a:1},
-      {q:"What time does Sarah finish work?", opts:["Seven AM","Noon","Three PM","Five PM"], a:2},
-      {q:"What does Sarah do on weekends?", opts:["She goes swimming","She visits family","She goes hiking","She stays home"], a:2},
+      {q:"Who introduced the concept of epistemic injustice?",opts:["Judith Butler","Miranda Fricker","Simone de Beauvoir","Hannah Arendt"],a:1},
+      {q:"What does testimonial injustice involve?",opts:["Denying someone access to education","Giving a speaker less credibility due to identity prejudice","Withholding information from minority groups","Misrepresenting historical facts"],a:1},
+      {q:"What example does the speaker give of hermeneutical injustice?",opts:["Racial segregation in schools","Lack of voting rights for women","Absence of the concept of sexual harassment before the 1970s","Denial of medical treatment based on class"],a:2},
+      {q:"What is hermeneutical injustice fundamentally about?",opts:["Gaps in collective interpretive resources causing unfair disadvantage","Deliberate suppression of minority voices","Legal inequality in court proceedings","Economic discrimination in the workplace"],a:0},
     ]
   },
   {
-    id:'p1c', lv:'B1',
-    audio:"A recent study found that people who walk at least thirty minutes a day are significantly healthier than those who don't exercise at all. The research, which involved over ten thousand participants, showed lower rates of heart disease, better mental health, and improved sleep quality among regular walkers. Experts recommend making walking part of your daily routine.",
+    id:'lc',lv:'C1',
+    audio:"Recent longitudinal research published in Nature Climate Change challenges the assumption that carbon capture and storage technology will serve as a viable bridge solution during the energy transition. The study found that current CCS infrastructure operates at approximately thirty percent of its projected capacity, largely due to prohibitive costs and significant energy penalties — meaning the technology itself consumes a substantial proportion of the energy it is designed to clean. Furthermore, the research highlights that investment in CCS may crowd out funding for renewable energy development, potentially delaying the transition to genuinely sustainable systems. The authors conclude that while CCS may play a limited role in hard-to-abate industrial sectors, it cannot be considered a central pillar of climate mitigation strategy.",
     qs:[
-      {q:"How long should people walk daily according to the study?", opts:["15 minutes","30 minutes","1 hour","2 hours"], a:1},
-      {q:"How many participants were in the study?", opts:["1,000","5,000","Over 10,000","50,000"], a:2},
-      {q:"Which benefit is NOT mentioned?", opts:["Better sleep","Lower heart disease","Improved diet","Better mental health"], a:2},
+      {q:"What assumption does the research challenge?",opts:["That renewables are cost-effective","That CCS technology is a viable bridge solution","That carbon emissions are increasing","That governments support climate policy"],a:1},
+      {q:"At what capacity does current CCS infrastructure operate?",opts:["About 70%","About 50%","About 30%","At full capacity"],a:2},
+      {q:"What does 'energy penalty' refer to in this context?",opts:["Financial penalties for energy companies","The energy consumed by CCS technology itself","Government taxes on fossil fuels","Reduced energy output from renewable sources"],a:1},
+      {q:"What do the authors conclude about CCS?",opts:["It should be the primary climate solution","It is completely ineffective","It may play a limited role but cannot be central to climate strategy","It should receive more government investment"],a:2},
     ]
   },
   {
-    id:'p1d', lv:'B2',
-    audio:"The rapid expansion of e-commerce has fundamentally altered consumer behaviour worldwide. Brick-and-mortar retailers have faced unprecedented challenges adapting to a marketplace where convenience and price transparency are paramount. While some traditional stores have successfully integrated digital platforms into their business models, others have been forced to close permanently, contributing to what analysts describe as the decline of the high street.",
+    id:'ld',lv:'C2',
+    audio:"The perennial tension between state sovereignty and supranational governance has been brought into sharp relief by the European Union's recent attempts to enforce compliance with its rule of law mechanisms. Several member states have resisted what they characterise as jurisdictional overreach, invoking the principle of subsidiarity — the doctrine that decisions should be made at the most local level competent to address them. Legal scholars remain divided on whether the Union's foundational treaties provide sufficient legal basis for sanctions against member states on grounds of democratic backsliding. This controversy exposes a fundamental ambiguity at the heart of the European project: whether it constitutes a union of sovereign states that have voluntarily pooled certain competences, or an emergent federal polity in which member state autonomy is necessarily circumscribed by shared constitutional norms.",
     qs:[
-      {q:"What has fundamentally altered consumer behaviour?", opts:["Social media","E-commerce expansion","Rising prices","Population growth"], a:1},
-      {q:"What two factors are described as paramount to consumers?", opts:["Quality and speed","Convenience and price transparency","Brand loyalty and service","Location and variety"], a:1},
-      {q:"What term do analysts use to describe the phenomenon?", opts:["Digital revolution","Retail collapse","Decline of the high street","Market disruption"], a:2},
-    ]
-  },
-  {
-    id:'p1e', lv:'C1',
-    audio:"The epistemological implications of artificial intelligence challenge longstanding assumptions about the nature of knowledge and cognition. If a machine can produce outputs indistinguishable from human reasoning, philosophers must grapple with whether it possesses genuine understanding or merely simulates it. This debate echoes the broader tension between functionalist theories of mind, which equate mental states with functional roles, and those that insist on the irreducible importance of subjective experience.",
-    qs:[
-      {q:"What do the epistemological implications of AI challenge?", opts:["Computing power","Economic models","Assumptions about knowledge and cognition","Environmental policy"], a:2},
-      {q:"What is the core philosophical question raised?", opts:["Whether AI is ethical","Whether machines genuinely understand or just simulate it","Whether AI will replace humans","Whether AI is conscious"], a:1},
-      {q:"What does functionalism equate mental states with?", opts:["Biological processes","Emotional responses","Functional roles","Subjective experience"], a:2},
-      {q:"How many questions are in this listening section?", opts:["15","18","20","25"], a:2},
+      {q:"What principle do resistant member states invoke?",opts:["Proportionality","Mutual recognition","Subsidiarity","Sovereignty primacy"],a:2},
+      {q:"What are legal scholars divided on?",opts:["Whether the EU should expand eastward","Whether founding treaties provide sufficient basis for sanctions on democratic backsliding","Whether subsidiarity applies to economic policy","Whether member states can leave the EU"],a:1},
+      {q:"What fundamental ambiguity does this controversy expose?",opts:["Whether the EU has democratic legitimacy","Whether the EU is a union of sovereign states or an emergent federal polity","Whether economic sanctions are effective","Whether the rule of law applies equally to all states"],a:1},
+      {q:"What does 'democratic backsliding' most likely mean in this context?",opts:["Economic recession caused by poor governance","A decline in democratic standards and rule of law","Failure to hold free elections","Reduced public participation in democracy"],a:1},
     ]
   },
 ];
 
 function buildS1(){
-  const c=document.getElementById('s1-items');
-  let qNum=1;
-  s1passages.forEach(passage=>{
-    let html=`<div style="margin-bottom:20px;border:1px solid var(--border);border-radius:10px;overflow:hidden;">
-      <div style="background:${lvlC[passage.lv]};padding:7px 14px;display:flex;justify-content:space-between;align-items:center;">
-        <span style="color:#fff;font-size:11px;font-weight:700;letter-spacing:.4px">LEVEL ${passage.lv}</span>
-      </div>
-      <div style="padding:14px;">
-      ${player(passage.id, passage.audio, 2, '🔊 Listen to the passage (max 2x)')}
-      <div class="listen-passage" id="trans-${passage.id}" style="display:none">${passage.audio}</div>`;
-
-    passage.qs.forEach((q,qi)=>{
-      const qid=`s1-${passage.id}-${qi}`;
-      correct.s1[qid]=q.a;
-      html+=`<div class="qcard" style="border:none;border-top:1px solid var(--border);border-radius:0;margin-bottom:0;">
-        <div class="qtop">
-          <div class="qrow">
-            <div class="qnum">${qNum}</div>
-            <div class="qtext">${q.q}</div>
-          </div>
-        </div>
-        <div class="opts">`;
-      q.opts.forEach((o,oi)=>{
-        html+=`<div class="opt" id="opt-${qid}-${oi}" onclick="selectOpt('s1','${qid}',${oi})">
-          <div class="ocircle"></div>
-          <span class="oletter">${String.fromCharCode(65+oi)}</span>
-          <span>${o}</span></div>`;
-      });
-      html+=`</div></div>`;
-      qNum++;
+  const c=document.getElementById('s1');let qn=1;
+  s1d.forEach(p=>{
+    let h=`<div style="margin-bottom:18px;border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+      <div style="background:${lc[p.lv]};padding:6px 13px;"><span style="color:#fff;font-size:10px;font-weight:700">LEVEL ${p.lv}</span></div>
+      <div style="padding:13px;">
+      ${player(p.id,p.audio,2,'🔊 Listen to the passage (max 2 times)')}
+      <div class="passage">${p.audio}</div>`;
+    p.qs.forEach((q,qi)=>{
+      const qid=`s1-${p.id}-${qi}`;cor.s1[qid]=q.a;
+      h+=`<div class="qcard" style="border:none;border-top:1px solid var(--border);border-radius:0;margin:0"><div class="qtop">
+        <div class="qrow"><div class="qnum">${qn}</div><div class="qtext">${q.q}</div></div></div><div class="opts">`;
+      q.opts.forEach((o,oi)=>{h+=`<div class="opt" id="opt-s1-${qid}-${oi}" onclick="selOpt('s1','${qid}',${oi})"><div class="oc"></div><span class="ol">${String.fromCharCode(65+oi)}</span><span>${o}</span></div>`;});
+      h+=`</div></div>`;qn++;
     });
-    html+=`</div></div>`;
-    c.innerHTML+=html;
+    h+=`</div></div>`;c.innerHTML+=h;
   });
 }
 
-// ═══════════════════════════════════════════════
-// SECTION 2 — GRAMMAR (20 Qs, A1→C1)
-// ═══════════════════════════════════════════════
-const s2data=[
-  {lv:'A1', q:'She ___ a teacher.', opts:['am','is','are','be'], a:1},
-  {lv:'A1', q:'___ you like coffee?', opts:['Are','Is','Do','Does'], a:2},
-  {lv:'A1', q:'There ___ two cats on the sofa.', opts:['is','am','are','be'], a:2},
-  {lv:'A2', q:'I ___ to the cinema last Saturday.', opts:['go','goes','went','gone'], a:2},
-  {lv:'A2', q:'She ___ English for three years.', opts:['studies','studied','has studied','is studying'], a:2},
-  {lv:'A2', q:'We ___ dinner when the phone rang.', opts:['have','had','were having','are having'], a:2},
-  {lv:'B1', q:'If it ___ tomorrow, we will cancel the trip.', opts:['rain','rains','rained','will rain'], a:1},
-  {lv:'B1', q:'The report ___ by the manager before noon.', opts:['finished','has finished','was finished','is finishing'], a:2},
-  {lv:'B1', q:'She suggested ___ the meeting to Friday.', opts:['to postpone','postpone','postponing','postponed'], a:2},
-  {lv:'B1', q:'He is the man ___ car was stolen.', opts:['who','that','which','whose'], a:3},
-  {lv:'B2', q:'___ she studied hard, she failed the exam.', opts:['Although','Despite','However','Because'], a:0},
-  {lv:'B2', q:'By the time we arrive, they ___ for two hours.', opts:['will wait','are waiting','will have been waiting','have waited'], a:2},
-  {lv:'B2', q:'I wish I ___ harder when I was young.', opts:['study','studied','had studied','would study'], a:2},
-  {lv:'B2', q:'Not only ___ late, but he also forgot the report.', opts:['he arrived','did he arrive','he did arrive','arrived he'], a:1},
-  {lv:'B2', q:'The project ___ unless additional funding is secured.', opts:['will abandon','is abandoning','will be abandoned','abandons'], a:2},
-  {lv:'C1', q:'Hardly ___ the conference begun when the fire alarm sounded.', opts:['had','has','did','was'], a:0},
-  {lv:'C1', q:'___ the weather conditions, the expedition pressed forward.', opts:['Despite of','In spite','Notwithstanding','Although'], a:2},
-  {lv:'C1', q:'The new legislation ___ to have far-reaching consequences for the industry.', opts:['is considered','considers','is considering','has considered'], a:0},
-  {lv:'C1', q:'It is high time the government ___ concrete action on climate change.', opts:['takes','took','has taken','will take'], a:1},
-  {lv:'C1', q:'She spoke with such authority that her audience could not help but ___ persuaded.', opts:['be','being','been','have been'], a:0},
+// ═══════════════════════════════
+// SECTION 2 — GRAMMAR (B2→C2)
+// ═══════════════════════════════
+const s2d=[
+  {lv:'B2',q:'The new regulations will have far-reaching consequences ___ the pharmaceutical industry.',opts:['to','for','on','about'],a:1},
+  {lv:'B2',q:'___ the committee had reviewed all submissions, a decision was reached unanimously.',opts:['Until','Once','Unless','Although'],a:1},
+  {lv:'B2',q:'She would rather the board ___ the merger until the audit is complete.',opts:['delays','delayed','delay','had delayed'],a:1},
+  {lv:'B2',q:'The report highlights issues that ___ addressed in previous policy frameworks.',opts:['were neglected to be','had been neglected to','had been failed to be','had failed to be'],a:3},
+  {lv:'B2',q:'Not until the final results were published ___ the extent of the problem.',opts:['did they realize','they realized','had they realized','they had realized'],a:0},
+  {lv:'C1',q:'The extent ___ which globalisation has transformed cultural identity remains contested.',opts:['to','in','by','at'],a:0},
+  {lv:'C1',q:'Scarcely ___ the ink dried on the agreement when disputes began to emerge.',opts:['did','had','has','was'],a:1},
+  {lv:'C1',q:'___ to popular belief, economic growth does not automatically reduce inequality.',opts:['Contrary','Despite','Opposed','Against'],a:0},
+  {lv:'C1',q:'The legislation, ___ passage was delayed by months of parliamentary debate, came into force last week.',opts:['which','whose','that','of which'],a:1},
+  {lv:'C1',q:'It is imperative that each delegate ___ their credentials to the secretariat upon arrival.',opts:['submits','submit','submitted','will submit'],a:1},
+  {lv:'C1',q:'The novel is ___ to be a satirical commentary on postcolonial identity rather than a straightforward narrative.',opts:['intended','intending','being intended','having intended'],a:0},
+  {lv:'C1',q:'___ compelling the evidence may seem, the court cannot convict without corroboration.',opts:['However','Whatever','Whichever','Wherever'],a:0},
+  {lv:'C2',q:'The professor spoke with such conviction that few students could ___ question her conclusions.',opts:['bring themselves to','find themselves to','allow themselves with','permit themselves for'],a:0},
+  {lv:'C2',q:'Had the government ___ earlier, the fiscal crisis might have been averted.',opts:['intervened','been intervening','have intervened','be intervening'],a:0},
+  {lv:'C2',q:'The findings were so anomalous as ___ the entire theoretical framework into question.',opts:['to call','calling','called','having called'],a:0},
+  {lv:'C2',q:'Notwithstanding the ___ risks, the board approved the venture by a narrow margin.',opts:['aforementioned','afore-stated','before-mentioned','previously-named'],a:0},
+  {lv:'C2',q:'The treaty ___ that disputes be submitted to binding international arbitration.',opts:['stipulates','stipulate','is stipulating','has been stipulating'],a:0},
+  {lv:'C2',q:'It was not so much the cost ___ the environmental impact that swayed the committee.',opts:['as','but','than','rather'],a:0},
+  {lv:'C2',q:'___ the economic arguments in favour of the policy, its social implications cannot be ignored.',opts:['Persuasive as are','As persuasive as are','Persuasive as they are','As they are persuasive'],a:2},
+  {lv:'C2',q:'The phenomenon defies easy categorisation, ___ that it exhibits characteristics of both categories simultaneously.',opts:['in that','by which','for which','such as'],a:0},
 ];
 
 function buildS2(){
-  const c=document.getElementById('s2-items');
-  s2data.forEach((item,i)=>{
-    const id=`s2-${i}`; correct.s2[id]=item.a;
-    let html=`<div class="qcard"><div class="qtop">${ltag(item.lv)}
-      <div class="qrow"><div class="qnum">${i+1}</div>
-      <div class="qtext">${item.q.replace('___','<span class="qblank">_____</span>')}</div></div></div>
-      <div class="opts">`;
-    item.opts.forEach((o,oi)=>{
-      html+=`<div class="opt" id="opt-${id}-${oi}" onclick="selectOpt('s2','${id}',${oi})">
-        <div class="ocircle"></div><span class="oletter">${String.fromCharCode(65+oi)}</span><span>${o}</span></div>`;
-    });
-    html+=`</div></div>`; c.innerHTML+=html;
+  const c=document.getElementById('s2');
+  s2d.forEach((it,i)=>{
+    const id=`s2-${i}`;cor.s2[id]=it.a;
+    let h=`<div class="qcard"><div class="qtop">${lt(it.lv)}<div class="qrow"><div class="qnum">${i+1}</div>
+      <div class="qtext">${it.q.replace('___','<span class="blank">_____</span>')}</div></div></div><div class="opts">`;
+    it.opts.forEach((o,oi)=>{h+=`<div class="opt" id="opt-s2-${id}-${oi}" onclick="selOpt('s2','${id}',${oi})"><div class="oc"></div><span class="ol">${String.fromCharCode(65+oi)}</span><span>${o}</span></div>`;});
+    h+=`</div></div>`;c.innerHTML+=h;
   });
 }
 
-// ═══════════════════════════════════════════════
-// SECTION 3 — VOCABULARY (20 Qs, A1→C1)
-// ═══════════════════════════════════════════════
-const s3data=[
-  {lv:'A1', q:'What is the ___ of this book? It weighs a lot.', opts:['size','colour','weight','price'], a:2},
-  {lv:'A1', q:'I am very ___. I did not eat breakfast.', opts:['tired','hungry','happy','cold'], a:1},
-  {lv:'A1', q:'She lives in a small ___ near the river.', opts:['house','office','factory','stadium'], a:0},
-  {lv:'A2', q:'He needs to ___ his passport before the trip.', opts:['lose','renew','break','ignore'], a:1},
-  {lv:'A2', q:'The doctor ___ him to rest for a week.', opts:['told','advised','said','spoke'], a:1},
-  {lv:'A2', q:'Can you ___ the lights? It is getting dark.', opts:['turn on','put off','take out','bring up'], a:0},
-  {lv:'B1', q:'The company plans to ___ its operations to Asia next year.', opts:['expand','explode','expose','express'], a:0},
-  {lv:'B1', q:'She made a ___ effort to improve her grades.', opts:['deliberate','deliberating','deliberately','deliberated'], a:0},
-  {lv:'B1', q:'The project was ___ due to lack of funding.', opts:['abandoned','adopted','adapted','achieved'], a:0},
-  {lv:'B1', q:'His explanation was so ___ that no one understood it.', opts:['clear','vague','simple','direct'], a:1},
-  {lv:'B2', q:'The politician\'s speech was full of ___, saying little of substance.', opts:['rhetoric','logic','evidence','reasoning'], a:0},
-  {lv:'B2', q:'The discovery had far-___ implications for the field.', opts:['reaching','going','seeing','thinking'], a:0},
-  {lv:'B2', q:'Despite initial resistance, the policy was eventually ___ by the board.', opts:['ratified','rectified','reified','resigned'], a:0},
-  {lv:'B2', q:'Her ___ manner put everyone in the room at ease.', opts:['affable','affirmative','affective','afflicted'], a:0},
-  {lv:'B2', q:'The report ___ several critical flaws in the existing system.', opts:['highlighted','lightened','heightened','enlightened'], a:0},
-  {lv:'C1', q:'The senator\'s ___ position on immigration alienated many moderate voters.', opts:['hawkish','childish','squeamish','oafish'], a:0},
-  {lv:'C1', q:'The CEO\'s decision was widely seen as ___, prioritising profit over ethics.', opts:['Machiavellian','Machiavellism','Machiavelli','Machiavellian-like'], a:0},
-  {lv:'C1', q:'Critics argued the new law would ___ civil liberties.', opts:['encroach on','encroach in','encroach at','encroach by'], a:0},
-  {lv:'C1', q:'The novel\'s ___ narrative structure challenges linear notions of time.', opts:['non-linear','non-sequential','fragmented','all of these'], a:3},
-  {lv:'C1', q:'His ___ wit made him both admired and feared in equal measure.', opts:['acerbic','acidic','acetic','acrid'], a:0},
+// ═══════════════════════════════
+// SECTION 3 — VOCABULARY (B2→C2)
+// ═══════════════════════════════
+const s3d=[
+  {lv:'B2',q:'The minister\'s remarks were widely seen as ___, failing to address the underlying concerns of the public.',opts:['evasive','invasive','persuasive','cohesive'],a:0},
+  {lv:'B2',q:'The new trade agreement is expected to ___ significant economic benefits for both nations.',opts:['yield','convey','transmit','relay'],a:0},
+  {lv:'B2',q:'After months of negotiation, the two parties finally reached a ___ on the terms of the contract.',opts:['consensus','concession','convention','conviction'],a:0},
+  {lv:'B2',q:'The research findings ___ the need for a complete overhaul of current environmental legislation.',opts:['underscore','undermine','underwrite','understate'],a:0},
+  {lv:'B2',q:'Her ___ approach to management created an atmosphere of trust and open communication.',opts:['collaborative','collateral','collegiate','colloquial'],a:0},
+  {lv:'C1',q:'The senator\'s position on immigration was regarded as ___, alienating both liberal and conservative voters.',opts:['untenable','untethered','untempered','untimely'],a:0},
+  {lv:'C1',q:'The journalist\'s investigation ___  widespread corruption within the regulatory body.',opts:['laid bare','laid down','laid off','laid out'],a:0},
+  {lv:'C1',q:'The government\'s decision to ___ the findings of the independent commission drew sharp criticism.',opts:['disregard','disagree','discredit','displace'],a:0},
+  {lv:'C1',q:'The new policy represents a significant ___ from the previous administration\'s approach.',opts:['departure','deference','deterrence','detachment'],a:0},
+  {lv:'C1',q:'Critics argued the proposed legislation would ___ civil liberties in ways unprecedented in peacetime.',opts:['encroach upon','impinge with','trespass into','infringe at'],a:0},
+  {lv:'C1',q:'The diplomat\'s ___ handling of the crisis averted what could have been a major international incident.',opts:['deft','adept','inept','bereft'],a:0},
+  {lv:'C1',q:'The study\'s conclusions were ___ by subsequent research conducted across three continents.',opts:['corroborated','collaborated','commemorated','coordinated'],a:0},
+  {lv:'C2',q:'The philosopher argued that modern consumerism represents a fundamental ___ of human values.',opts:['perversion','diversion','inversion','subversion'],a:0},
+  {lv:'C2',q:'The treaty\'s ___ language has allowed successive governments to interpret its provisions selectively.',opts:['ambiguous','ambivalent','anomalous','anachronistic'],a:0},
+  {lv:'C2',q:'The author employs ___ narrative technique to draw parallels between the protagonist\'s fate and broader social decline.',opts:['allegorical','alliterative','anachronistic','anecdotal'],a:0},
+  {lv:'C2',q:'The board\'s decision to proceed despite the warnings was later described as ___ negligence.',opts:['egregious','egregiousness','egregiously','egregrious'],a:0},
+  {lv:'C2',q:'The policy\'s implementation was characterised by a ___ disregard for the communities most affected.',opts:['cavalier','cavalcade','chivalrous','cavernous'],a:0},
+  {lv:'C2',q:'The new evidence ___ the long-held assumption that the two species evolved independently.',opts:['undermines','underpins','underscores','undertakes'],a:0},
+  {lv:'C2',q:'His ___ wit, often delivered with studied nonchalance, made him a formidable presence in academic debate.',opts:['acerbic','acetic','acidic','acrid'],a:0},
+  {lv:'C2',q:'The legislation was criticised for its ___ approach, addressing symptoms rather than root causes.',opts:['palliative','pallid','palpable','palatable'],a:0},
 ];
 
 function buildS3(){
-  const c=document.getElementById('s3-items');
-  s3data.forEach((item,i)=>{
-    const id=`s3-${i}`; correct.s3[id]=item.a;
-    let html=`<div class="qcard"><div class="qtop">${ltag(item.lv)}
-      <div class="qrow"><div class="qnum">${i+1}</div>
-      <div class="qtext">${item.q.replace('___','<span class="qblank">_____</span>')}</div></div></div>
-      <div class="opts">`;
-    item.opts.forEach((o,oi)=>{
-      html+=`<div class="opt" id="opt-${id}-${oi}" onclick="selectOpt('s3','${id}',${oi})">
-        <div class="ocircle"></div><span class="oletter">${String.fromCharCode(65+oi)}</span><span>${o}</span></div>`;
-    });
-    html+=`</div></div>`; c.innerHTML+=html;
+  const c=document.getElementById('s3');
+  s3d.forEach((it,i)=>{
+    const id=`s3-${i}`;cor.s3[id]=it.a;
+    let h=`<div class="qcard"><div class="qtop">${lt(it.lv)}<div class="qrow"><div class="qnum">${i+1}</div>
+      <div class="qtext">${it.q.replace('___','<span class="blank">_____</span>')}</div></div></div><div class="opts">`;
+    it.opts.forEach((o,oi)=>{h+=`<div class="opt" id="opt-s3-${id}-${oi}" onclick="selOpt('s3','${id}',${oi})"><div class="oc"></div><span class="ol">${String.fromCharCode(65+oi)}</span><span>${o}</span></div>`;});
+    h+=`</div></div>`;c.innerHTML+=h;
   });
 }
 
-// ═══════════════════════════════════════════════
-// SECTION 4 — SENTENCE BUILDS (15 Qs, A1→C1)
-// ═══════════════════════════════════════════════
-const s4data=[
-  {lv:'A1', words:['I','a','have','cat'], answer:'I have a cat'},
-  {lv:'A1', words:['is','the','where','bank'], answer:'Where is the bank'},
-  {lv:'A2', words:['yesterday','she','the','visited','museum'], answer:'She visited the museum yesterday'},
-  {lv:'A2', words:['like','do','you','coffee'], answer:'Do you like coffee'},
-  {lv:'B1', words:['finished','already','the','had','he','report'], answer:'He had already finished the report'},
-  {lv:'B1', words:['rains','if','cancel','it','we','will','the','match'], answer:'If it rains we will cancel the match'},
-  {lv:'B1', words:['the','was','built','bridge','1990','in'], answer:'The bridge was built in 1990'},
-  {lv:'B2', words:['only','arrived','not','did','late','she','but','forgot','notes','her','also'], answer:'Not only did she arrive late but she also forgot her notes'},
-  {lv:'B2', words:['harder','studied','she','would','have','passed','had','if'], answer:'She would have passed if she had studied harder'},
-  {lv:'B2', words:['the','been','scarcely','announced','policy','when','protests','had','began'], answer:'Scarcely had the policy been announced when protests began'},
-  {lv:'B2', words:['whose','the','was','man','stolen','car','arrested','was'], answer:'The man whose car was stolen was arrested'},
-  {lv:'C1', words:['the','notwithstanding','objections','committee','approved','bill','the','proposed'], answer:'Notwithstanding the objections the committee approved the proposed bill'},
-  {lv:'C1', words:['it','taken','high','the','time','is','government','action','concrete'], answer:'It is high time the government took concrete action'},
-  {lv:'C1', words:['be','would','what','it','seem','premature','to','conclude','that'], answer:'It would seem premature to conclude that'},
-  {lv:'C1', words:['the','extent','which','to','AI','reshape','will','professions','debated','remains'], answer:'The extent to which AI will reshape professions remains debated'},
+// ═══════════════════════════════
+// SECTION 4 — SENTENCE BUILDS (B2→C2)
+// ═══════════════════════════════
+const s4d=[
+  {lv:'B2',words:['only','arrived','not','did','late','she','but','also','she','forgot','credentials','her'],answer:'not only did she arrive late but she also forgot her credentials'},
+  {lv:'B2',words:['had','scarcely','the','policy','announced','been','when','opposition','mounted'],answer:'scarcely had the policy been announced when opposition mounted'},
+  {lv:'B2',words:['sooner','no','had','the','merger','announced','been','than','shares','plummeted'],answer:'no sooner had the merger been announced than shares plummeted'},
+  {lv:'B2',words:['it','been','have','would','premature','to','verdict','a','render','so','early'],answer:'it would have been premature to render a verdict so early'},
+  {lv:'B2',words:['the','extent','which','to','automation','reshape','will','labour','markets','debated','remains'],answer:'the extent to which automation will reshape labour markets remains debated'},
+  {lv:'C1',words:['the','committee','notwithstanding','objections','the','approved','proposed','bill','the'],answer:'notwithstanding the objections the committee approved the proposed bill'},
+  {lv:'C1',words:['is','imperative','it','each','that','delegate','submit','upon','credentials','arrival','their'],answer:'it is imperative that each delegate submit their credentials upon arrival'},
+  {lv:'C1',words:['persuasive','as','arguments','economic','are','the','cannot','social','implications','ignored','be'],answer:'persuasive as the economic arguments are the social implications cannot be ignored'},
+  {lv:'C1',words:['government','the','intervened','had','earlier','crisis','fiscal','the','averted','been','might','have'],answer:'had the government intervened earlier the fiscal crisis might have been averted'},
+  {lv:'C1',words:['much','not','so','cost','the','as','impact','the','environmental','swayed','committee','the'],answer:'it was not so much the cost as the environmental impact that swayed the committee'},
+  {lv:'C2',words:['findings','the','anomalous','so','as','were','call','entire','the','framework','theoretical','into','question'],answer:'the findings were so anomalous as to call the entire theoretical framework into question'},
+  {lv:'C2',words:['conviction','speaks','such','she','with','that','colleagues','her','cannot','but','be','impressed'],answer:'she speaks with such conviction that her colleagues cannot but be impressed'},
+  {lv:'C2',words:['belief','contrary','popular','to','growth','economic','does','automatically','not','reduce','inequality'],answer:'contrary to popular belief economic growth does not automatically reduce inequality'},
+  {lv:'C2',words:['categorisation','phenomenon','the','defies','easy','exhibiting','characteristics','both','of','categories','simultaneously'],answer:'the phenomenon defies easy categorisation exhibiting characteristics of both categories simultaneously'},
+  {lv:'C2',words:['law','rule','the','mechanism','of','notwithstanding','its','critics','endorsed','the','majority','by','a','was'],answer:'the rule of law mechanism was endorsed by a majority notwithstanding its critics'},
 ];
 
 function buildS4(){
-  const c=document.getElementById('s4-items');
-  s4data.forEach((item,i)=>{
+  const c=document.getElementById('s4');
+  s4d.forEach((it,i)=>{
     const id=`s4-${i}`;
-    sbState[id]={placed:[],correct:item.answer.toLowerCase().replace(/[^a-z\s]/g,'').trim(),scored:false};
-    const shuffled=[...item.words].sort(()=>Math.random()-.5);
-    let html=`<div class="qcard" id="card-${id}"><div class="qtop">${ltag(item.lv)}
-      <div class="qrow"><div class="qnum">${i+1}</div>
-      <div class="qtext">Arrange the words to form a correct sentence:</div></div>
-      <div class="wbank" id="bank-${id}">
-        ${shuffled.map((w,wi)=>`<div class="wchip" id="chip-${id}-${wi}" data-wi="${wi}" onclick="placeW('${id}',${wi},'${w}')">${w}</div>`).join('')}
-      </div>
-      <span class="clr" onclick="clrW('${id}')">Clear all</span>
-      <div class="adrop" id="drop-${id}">Click words above to build your sentence…</div>
+    sb[id]={placed:[],correct:it.answer.toLowerCase().replace(/[^a-z\s]/g,'').trim(),scored:false};
+    const sh=[...it.words].sort(()=>Math.random()-.5);
+    let h=`<div class="qcard"><div class="qtop">${lt(it.lv)}<div class="qrow"><div class="qnum">${i+1}</div>
+      <div class="qtext">Arrange these words into a grammatically correct sentence:</div></div>
+      <div class="wbank" id="bk-${id}">${sh.map((w,wi)=>`<div class="wchip" id="ch-${id}-${wi}" onclick="pw('${id}',${wi},'${w}')">${w}</div>`).join('')}</div>
+      <span class="clr" onclick="cw('${id}')">Clear all</span>
+      <div class="adrop" id="dp-${id}">Click words above to build your sentence…</div>
       <div class="sbfb" id="fb-${id}"></div>
     </div></div>`;
-    c.innerHTML+=html;
+    c.innerHTML+=h;
   });
 }
 
-function placeW(id,wi,word){
-  const chip=document.getElementById(`chip-${id}-${wi}`);
-  if(chip.classList.contains('used'))return;
-  chip.classList.add('used');
-  const drop=document.getElementById(`drop-${id}`);
-  if(drop.textContent.includes('Click'))drop.innerHTML='';
-  const pw=document.createElement('div');
-  pw.className='pwrd'; pw.textContent=word; pw.dataset.wi=wi;
-  pw.onclick=()=>returnW(id,wi,pw);
-  drop.appendChild(pw);
-  sbState[id].placed.push({wi,word});
-  checkW(id);
+function pw(id,wi,word){
+  const ch=document.getElementById(`ch-${id}-${wi}`);
+  if(ch.classList.contains('used'))return;
+  ch.classList.add('used');
+  const dp=document.getElementById(`dp-${id}`);
+  if(dp.textContent.includes('Click'))dp.innerHTML='';
+  const pw=document.createElement('div');pw.className='pwrd';pw.textContent=word;pw.dataset.wi=wi;
+  pw.onclick=()=>rw(id,wi,pw);dp.appendChild(pw);
+  sb[id].placed.push({wi,word});ckw(id);
 }
-function returnW(id,wi,el){
-  el.remove();
-  document.getElementById(`chip-${id}-${wi}`).classList.remove('used');
-  sbState[id].placed=sbState[id].placed.filter(p=>p.wi!==wi);
-  const drop=document.getElementById(`drop-${id}`);
-  if(!drop.querySelector('.pwrd'))drop.innerHTML='Click words above to build your sentence…';
+function rw(id,wi,el){
+  el.remove();document.getElementById(`ch-${id}-${wi}`).classList.remove('used');
+  sb[id].placed=sb[id].placed.filter(p=>p.wi!==wi);
+  const dp=document.getElementById(`dp-${id}`);
+  if(!dp.querySelector('.pwrd'))dp.innerHTML='Click words above to build your sentence…';
+  if(sb[id].scored){ans.s4[id]=false;sb[id].scored=false;}
   document.getElementById(`fb-${id}`).style.display='none';
-  if(sbState[id].scored){answers.s4[id]=false;sbState[id].scored=false;}
-  checkW(id);
 }
-function clrW(id){
-  document.getElementById(`drop-${id}`).innerHTML='Click words above to build your sentence…';
-  document.getElementById(`bank-${id}`).querySelectorAll('.wchip').forEach(c=>c.classList.remove('used'));
-  sbState[id].placed=[];
-  document.getElementById(`fb-${id}`).style.display='none';
-  if(sbState[id].scored){answers.s4[id]=false;sbState[id].scored=false;}
+function cw(id){
+  document.getElementById(`dp-${id}`).innerHTML='Click words above to build your sentence…';
+  document.getElementById(`bk-${id}`).querySelectorAll('.wchip').forEach(c=>c.classList.remove('used'));
+  sb[id].placed=[];document.getElementById(`fb-${id}`).style.display='none';
+  if(sb[id].scored){ans.s4[id]=false;sb[id].scored=false;}
 }
-function checkW(id){
-  const item=s4data.find((_,i)=>`s4-${i}`===id);
-  if(!item)return;
-  const total=item.words.length;
-  const placed=sbState[id].placed;
-  if(placed.length<total)return;
-  const built=placed.map(p=>p.word).join(' ').toLowerCase().replace(/[^a-z\s]/g,'').trim();
+function ckw(id){
+  const it=s4d.find((_,i)=>`s4-${i}`===id);if(!it)return;
+  if(sb[id].placed.length<it.words.length)return;
+  const built=sb[id].placed.map(p=>p.word).join(' ').toLowerCase().replace(/[^a-z\s]/g,'').trim();
   const fb=document.getElementById(`fb-${id}`);
-  if(built===sbState[id].correct){
-    fb.innerHTML='✅ Correct!'; fb.style.color='var(--green)';
-    answers.s4[id]=true; sbState[id].scored=true;
+  if(built===sb[id].correct){
+    fb.innerHTML='✅ Correct!';fb.style.color='var(--green)';ans.s4[id]=true;sb[id].scored=true;
   } else {
-    fb.innerHTML='❌ Not quite — try reordering the words.'; fb.style.color='var(--red)';
-    answers.s4[id]=false; sbState[id].scored=false;
+    fb.innerHTML='❌ Not quite — check the word order.';fb.style.color='var(--red)';ans.s4[id]=false;sb[id].scored=false;
   }
   fb.style.display='block';
 }
 
-// ═══════════════════════════════════════════════
-// SECTION 5 — WRITING
-// ═══════════════════════════════════════════════
-const writingPrompt=`Some people believe that technology has made our lives significantly better, while others argue it has created new problems and inequalities. 
-
-Write an essay discussing both views. Include:
-• Specific examples and reasons to support each side
-• Your own opinion and conclusion
-• A well-organized structure: introduction, body paragraphs, conclusion
-
-Minimum 150 words.`;
-
+// ═══════════════════════════════
+// SECTION 5 — WRITING (C1 level prompt)
+// ═══════════════════════════════
 function buildS5(){
-  const c=document.getElementById('s5-items');
-  c.innerHTML=`
-  <div class="wprompt">${writingPrompt.replace(/\n/g,'<br>').replace(/•/g,'▸')}</div>
-  <textarea class="warea" id="wtext" placeholder="Write your essay here…" oninput="countW()"></textarea>
-  <div class="wcount" id="wcount"><span id="wcn">0</span> words <span id="wmin" class="wmin" style="display:none">(minimum 150)</span></div>`;
+  document.getElementById('s5').innerHTML=`
+  <div class="wprompt">
+    <strong>Academic Essay Prompt</strong><br><br>
+    "Technological innovation and environmental sustainability are fundamentally incompatible goals. Societies must choose between economic growth driven by technology and the preservation of the natural world."<br><br>
+    To what extent do you agree or disagree with this statement? Develop a well-reasoned argument, drawing on relevant evidence, examples, or theoretical frameworks. Your essay should demonstrate a sophisticated command of academic English.<br><br>
+    <em>Minimum 250 words. You have approximately 30 minutes.</em>
+  </div>
+  <textarea class="warea" id="wtxt" placeholder="Begin your essay here…" oninput="wc()"></textarea>
+  <div class="wcount"><span id="wcn">0</span> words <span id="wmin" style="color:var(--red);font-weight:700;display:none">— minimum 250 required</span></div>`;
 }
-function countW(){
-  const txt=document.getElementById('wtext').value.trim();
-  const n=txt?txt.split(/\s+/).length:0;
+function wc(){
+  const t=document.getElementById('wtxt').value.trim();
+  const n=t?t.split(/\s+/).length:0;
   document.getElementById('wcn').textContent=n;
-  document.getElementById('wmin').style.display=n<150?'inline':'none';
+  document.getElementById('wmin').style.display=n<250?'inline':'none';
 }
 
-// ═══════════════════════════════════════════════
 // MCQ SELECTION
-// ═══════════════════════════════════════════════
-function selectOpt(sec,qid,oi){
-  const prev=answers[sec][qid];
-  if(prev!==undefined){
-    document.getElementById(`opt-${qid}-${prev}`).classList.remove('selected');
-  }
-  answers[sec][qid]=oi;
-  document.getElementById(`opt-${qid}-${oi}`).classList.add('selected');
+function selOpt(sec,qid,oi){
+  const prev=ans[sec][qid];
+  if(prev!==undefined)document.getElementById(`opt-${sec}-${qid}-${prev}`)?.classList.remove('selected');
+  ans[sec][qid]=oi;
+  document.getElementById(`opt-${sec}-${qid}-${oi}`)?.classList.add('selected');
 }
 
-// ═══════════════════════════════════════════════
-// SUBMIT SECTION (show score, mark answers)
-// ═══════════════════════════════════════════════
-const sectionSubmitted={0:false,1:false,2:false,3:false};
-
-function submitSection(idx){
-  if(sectionSubmitted[idx]){goTo(idx+1);return;}
-
-  const secMap=['s1','s2','s3','s4'];
-  const sec=secMap[idx];
-  const corrMap=correct[sec];
-  const ansMap=answers[sec];
-
+// SUBMIT SECTION
+const submitted={0:false,1:false,2:false,3:false};
+function submitSec(idx){
+  if(submitted[idx]){goTo(idx+1);return;}
+  const secs=['s1','s2','s3','s4'];
+  const sec=secs[idx];
   let got=0,tot=0;
-
   if(idx===3){
-    // Sentence builds
-    s4data.forEach((_,i)=>{
-      const id=`s4-${i}`;
-      tot++;
-      if(answers.s4[id]===true)got++;
-    });
+    s4d.forEach((_,i)=>{tot++;if(ans.s4[`s4-${i}`]===true)got++;});
   } else {
-    Object.keys(corrMap).forEach(qid=>{
+    Object.keys(cor[sec]).forEach(qid=>{
       tot++;
-      const userAns=ansMap[qid];
-      const corrAns=corrMap[qid];
-      if(userAns!==undefined){
-        const selEl=document.getElementById(`opt-${qid}-${userAns}`);
-        const corrEl=document.getElementById(`opt-${qid}-${corrAns}`);
-        if(userAns===corrAns){
-          if(selEl)selEl.classList.add('correct');
-          got++;
-        } else {
-          if(selEl)selEl.classList.add('wrong');
-          if(corrEl)corrEl.classList.add('correct');
-        }
+      const ua=ans[sec][qid],ca=cor[sec][qid];
+      if(ua!==undefined){
+        const sel=document.getElementById(`opt-${sec}-${qid}-${ua}`);
+        const cor2=document.getElementById(`opt-${sec}-${qid}-${ca}`);
+        if(ua===ca){sel?.classList.add('correct');got++;}
+        else{sel?.classList.add('wrong');cor2?.classList.add('correct');}
       } else {
-        const corrEl=document.getElementById(`opt-${qid}-${corrAns}`);
-        if(corrEl)corrEl.classList.add('correct');
+        document.getElementById(`opt-${sec}-${qid}-${ca}`)?.classList.add('correct');
       }
-      // Disable options
-      if(idx<3){
-        const q=Object.keys(corrMap).indexOf(qid);
-        for(let oi=0;oi<4;oi++){
-          const el=document.getElementById(`opt-${qid}-${oi}`);
-          if(el){el.style.pointerEvents='none';}
-        }
-      }
+      for(let oi=0;oi<4;oi++){const e=document.getElementById(`opt-${sec}-${qid}-${oi}`);if(e)e.style.pointerEvents='none';}
     });
   }
-
-  const scoreEl=document.getElementById(`s${idx+1}-score`);
   const pct=Math.round((got/tot)*100);
-  scoreEl.innerHTML=`<strong>Section Score: ${got}/${tot} (${pct}%)</strong> — ${getFeedback(pct)}`;
-  scoreEl.style.display='flex';
-
-  sectionSubmitted[idx]=true;
+  const sc=document.getElementById(`sc${idx+1}`);
+  sc.innerHTML=`<strong>Section Score: ${got}/${tot} (${pct}%)</strong>&nbsp;—&nbsp;${pct>=80?'🟢 Excellent':pct>=60?'🟡 Good':pct>=40?'🟠 Fair':'🔴 Needs improvement'}`;
+  sc.style.display='flex';
+  submitted[idx]=true;
   document.getElementById(`tab${idx}`).classList.add('done');
   goTo(idx+1);
 }
 
-function getFeedback(pct){
-  if(pct>=85)return '🟢 Excellent';
-  if(pct>=65)return '🟡 Good';
-  if(pct>=45)return '🟠 Fair';
-  return '🔴 Needs improvement';
-}
-
-// ═══════════════════════════════════════════════
-// SCORING & CEFR
-// ═══════════════════════════════════════════════
-// Weights: S1=20, S2=20, S3=20, S4=15 → total MCQ = 75
-// Writing scored separately by examiner (0-25)
-function calcScore(){
+// SCORE & CEFR
+function calcSc(){
   let s1=0,s2=0,s3=0,s4=0;
-  Object.keys(correct.s1).forEach(k=>{if(answers.s1[k]===correct.s1[k])s1++;});
-  Object.keys(correct.s2).forEach(k=>{if(answers.s2[k]===correct.s2[k])s2++;});
-  Object.keys(correct.s3).forEach(k=>{if(answers.s3[k]===correct.s3[k])s3++;});
-  s4data.forEach((_,i)=>{if(answers.s4[`s4-${i}`]===true)s4++;});
-  return {s1,s2,s3,s4,total:s1+s2+s3+s4};
+  Object.keys(cor.s1).forEach(k=>{if(ans.s1[k]===cor.s1[k])s1++;});
+  Object.keys(cor.s2).forEach(k=>{if(ans.s2[k]===cor.s2[k])s2++;});
+  Object.keys(cor.s3).forEach(k=>{if(ans.s3[k]===cor.s3[k])s3++;});
+  s4d.forEach((_,i)=>{if(ans.s4[`s4-${i}`]===true)s4++;});
+  return{s1,s2,s3,s4,total:s1+s2+s3+s4};
 }
-
-const cefrBands=[
-  {min:0, max:20, lv:'A1',label:'Beginner',          rec:'Focus on basic grammar, core vocabulary, and simple sentence structures.'},
-  {min:21,max:35, lv:'A2',label:'Elementary',         rec:'Work on common tenses, everyday vocabulary, and simple conversation.'},
-  {min:36,max:48, lv:'B1',label:'Intermediate',       rec:'Practise complex sentences, opinion expression, and longer texts.'},
-  {min:49,max:60, lv:'B2',label:'Upper-Intermediate', rec:'Develop academic vocabulary, complex grammar, and argumentation skills.'},
-  {min:61,max:75, lv:'C1',label:'Advanced',           rec:'Focus on nuanced language, idiomatic expressions, and academic writing.'},
+const bands=[
+  {min:0, max:27,lv:'B2',label:'Upper-Intermediate'},
+  {min:28,max:47,lv:'C1',label:'Advanced'},
+  {min:48,max:55,lv:'C2',label:'Proficiency'},
 ];
-const cefrCol={A1:'#78909C',A2:'#1976D2',B1:'#00897B',B2:'#5E35B1',C1:'#6D4C41'};
+function getBand(sc){return bands.find(b=>sc>=b.min&&sc<=b.max)||bands[0];}
 
-function getBand(score){return cefrBands.find(b=>score>=b.min&&score<=b.max)||cefrBands[0];}
-
-// ═══════════════════════════════════════════════
-// FINISH & SUBMIT
-// ═══════════════════════════════════════════════
+// FINISH
 function finishTest(){
-  if(curUtt)speechSynthesis.cancel();
-
-  const wtext=document.getElementById('wtext').value.trim();
-  const wwords=wtext?wtext.split(/\s+/).length:0;
-  if(wwords<50){
-    if(!confirm('Your writing response is very short. Are you sure you want to submit?'))return;
-  }
-
-  const name  = document.getElementById('sName').value||'Unknown';
-  const group = document.getElementById('sGroup').value||'—';
-  const date  = document.getElementById('sDate').value||new Date().toISOString().split('T')[0];
-  const sc    = calcScore();
-  const band  = getBand(sc.total);
-
-  // Hide panels, show confirmation
+  if(curU)speechSynthesis.cancel();
+  const wt=document.getElementById('wtxt').value.trim();
+  const ww=wt?wt.split(/\s+/).length:0;
+  if(ww<100&&!confirm('Your essay is very short. Submit anyway?'))return;
+  const name=document.getElementById('sName').value||'Unknown';
+  const id=document.getElementById('sId').value||'—';
+  const date=document.getElementById('sDate').value||new Date().toISOString().split('T')[0];
+  const sc=calcSc();
+  const band=getBand(sc.total);
   document.querySelectorAll('.panel').forEach(p=>p.style.display='none');
   document.getElementById('rp').style.display='block';
-  document.getElementById('r-name').textContent=name+' · '+new Date().toLocaleDateString();
+  document.getElementById('rname').textContent=`${name} · ID: ${id} · ${new Date().toLocaleDateString()}`;
   window.scrollTo(0,0);
-
-  // Send to Google Sheets
   const payload={
-    timestamp:    new Date().toISOString(),
-    name, group, date,
-    s1Score:      sc.s1+'/20',
-    s2Score:      sc.s2+'/20',
-    s3Score:      sc.s3+'/20',
-    s4Score:      sc.s4+'/15',
-    mcqTotal:     sc.total+'/75',
-    mcqPct:       Math.round((sc.total/75)*100)+'%',
-    cefrLevel:    band.lv,
-    cefrLabel:    band.label,
-    writingText:  wtext,
-    writingWords: wwords,
-    durationSecs: sec,
+    timestamp:new Date().toISOString(),name,studentId:id,accessCode:studentAccessCode,date,
+    s1Score:`${sc.s1}/20`,s2Score:`${sc.s2}/20`,s3Score:`${sc.s3}/20`,s4Score:`${sc.s4}/15`,
+    mcqTotal:`${sc.total}/55`,mcqPct:Math.round((sc.total/55)*100)+'%',
+    cefrLevel:band.lv,cefrLabel:band.label,
+    writingText:wt,writingWords:ww,durationSecs:sec,
   };
-
-  if(SHEETS_URL&&SHEETS_URL!=='https://script.google.com/macros/s/AKfycbzIUz45isa5V5_qDEuf7LELtGggQF2Tx7DIw2ZjMOmmZKPC2siQ6QmzdDufc3Y25drr/exec'){
-    fetch(SHEETS_URL,{
-      method:'POST', mode:'no-cors',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(payload)
-    }).catch(e=>console.warn('Sheets error:',e));
-  }
+  fetch(FORMSPREE_URL, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify({
+      name:         payload.name,
+      student_id:   payload.studentId,
+      date:         payload.date,
+      s1_listening: payload.s1Score,
+      s2_grammar:   payload.s2Score,
+      s3_vocabulary:payload.s3Score,
+      s4_sentences: payload.s4Score,
+      mcq_total:    payload.mcqTotal,
+      mcq_percent:  payload.mcqPct,
+      cefr_level:   payload.cefrLevel,
+      cefr_label:   payload.cefrLabel,
+      writing_words:payload.writingWords,
+      writing_essay:payload.writingText,
+      duration_min: Math.round(payload.durationSecs/60)+' min',
+    })
+  }).catch(e=>console.warn('FormSpree error:',e));
 }
 
-// ═══════════════════════════════════════════════
-// NAVIGATION
-// ═══════════════════════════════════════════════
-const tabLabels=['Section 1 — Listening','Section 2 — Grammar','Section 3 — Vocabulary','Section 4 — Sentence Builds','Section 5 — Writing'];
-const lvlProgression=['A1','A2','B1','B2','C1'];
-
+// NAV
+const tlabels=['Section 1 — Listening','Section 2 — Grammar','Section 3 — Vocabulary','Section 4 — Sentence Builds','Section 5 — Writing'];
 function goTo(idx){
   if(idx>4)return;
-  if(curUtt){speechSynthesis.cancel();curUtt=null;}
+  if(curU){speechSynthesis.cancel();curU=null;}
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById(`panel-${idx}`).classList.add('active');
   document.querySelectorAll('.stab').forEach(t=>t.classList.remove('active'));
   document.getElementById(`tab${idx}`).classList.add('active');
-  document.getElementById('pfill').style.width=((idx+1)/5*100)+'%';
-  document.getElementById('plabel').textContent=`${tabLabels[idx]} — ${idx+1} of 5`;
-  // Level band — highlight up to current estimated level
-  const lvlIdx=Math.min(idx,4);
+  document.getElementById('pf').style.width=((idx+1)/5*100)+'%';
+  document.getElementById('pl').textContent=`${tlabels[idx]} — ${idx+1} of 5`;
+  const lvls=['B2','B2','C1','C1','C2'];
+  const li=lvls.indexOf(lvls[idx]);
   document.querySelectorAll('.lb').forEach(l=>l.classList.remove('on'));
-  lvlProgression.slice(0,lvlIdx+1).forEach(l=>{
-    const el=document.getElementById(`lb-${l}`); if(el)el.classList.add('on');
-  });
+  ['B2','C1','C2'].slice(0,li+1).forEach(l=>{const e=document.getElementById(`lb-${l}`);if(e)e.classList.add('on');});
   window.scrollTo(0,0);
 }
 
-// ── INIT ──
+// INIT
 document.getElementById('sDate').value=new Date().toISOString().split('T')[0];
-buildS1(); buildS2(); buildS3(); buildS4(); buildS5();
+buildS1();buildS2();buildS3();buildS4();buildS5();
 </script>
 </body>
 </html>
