@@ -171,12 +171,19 @@ body{font-family:Arial,Helvetica,sans-serif;background:#EEF2FB;color:var(--text)
   <div class="lbox">
     <div class="llogo">🎓</div>
     <h1>MUAS</h1>
-    <div class="lsub">English Placement Test · A1–C1<br>Authorized access only</div>
-    <div class="lfield"><label>Access Code</label>
+    <div class="lsub">English Placement Test · A1–C1<br>Please fill in all fields to begin</div>
+    <div class="lfield"><label>Full Name *</label>
+      <input type="text" id="lName" placeholder="Your full name" autocomplete="off"/></div>
+    <div class="lfield"><label>Passport / ID Number *</label>
+      <input type="text" id="lId" placeholder="e.g. AB123456" autocomplete="off"/></div>
+    <div class="lfield"><label>Group</label>
+      <input type="text" id="lGroup" placeholder="e.g. Group A" autocomplete="off"/></div>
+    <div class="lfield"><label>Access Code *</label>
       <input type="password" id="acode" placeholder="Enter access code"
         onkeydown="if(event.key==='Enter')doLogin()" autocomplete="off"/></div>
     <button class="lbtn" onclick="doLogin()">Enter Exam →</button>
     <div class="lerr" id="lerr">❌ Incorrect code. Please try again.</div>
+    <div class="lerr" id="lerr2" style="display:none">⚠️ Please fill in your name and ID before continuing.</div>
     <div class="lfooter">© MUAS · Unauthorized access is prohibited</div>
   </div>
 </div>
@@ -363,15 +370,29 @@ const ACCESS_CODES = ['MUAS2025','muas2025'];
 
 // ── LOGIN ──
 function doLogin(){
-  const v=document.getElementById('acode').value.trim();
-  if(ACCESS_CODES.includes(v)){
-    document.getElementById('login-overlay').classList.add('gone');
-    document.body.style.overflow='';
-  } else {
-    document.getElementById('lerr').style.display='block';
+  const v     = document.getElementById('acode').value.trim();
+  const name  = document.getElementById('lName').value.trim();
+  const idnum = document.getElementById('lId').value.trim();
+  const group = document.getElementById('lGroup').value.trim();
+  const err1  = document.getElementById('lerr');
+  const err2  = document.getElementById('lerr2');
+  err1.style.display='none'; err2.style.display='none';
+
+  if(!name || !idnum){
+    err2.style.display='block';
+    return;
+  }
+  if(!ACCESS_CODES.includes(v)){
+    err1.style.display='block';
     document.getElementById('acode').value='';
     document.getElementById('acode').focus();
+    return;
   }
+  // All good — copy values to exam info bar and hide login
+  document.getElementById('sName').value  = name;
+  document.getElementById('sGroup').value = idnum + (group ? ' · '+group : '');
+  document.getElementById('login-overlay').classList.add('gone');
+  document.body.style.overflow='';
 }
 
 // ── TIMER ──
